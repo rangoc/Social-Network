@@ -18,6 +18,7 @@ mongoose.connect(
 
 // middleware
 app.use(express.json()); // body parser for when making requests it's going to help with parsing them
+
 app.use(helmet());
 app.use(morgan('common'));
 

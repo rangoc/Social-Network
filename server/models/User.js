@@ -40,6 +40,23 @@ const UserSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    // all properties down below could be put into Info model, that would be better practice
+    desc: {
+      type: String,
+      max: 50,
+    },
+    city: {
+      type: String,
+      max: 50,
+    },
+    from: {
+      type: String,
+      max: 50,
+    },
+    relationship: {
+      type: Number,
+      enum: [1, 2, 3],
+    },
   },
   { timestamps: true }
 );

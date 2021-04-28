@@ -1,7 +1,7 @@
 import React from 'react';
-import './feed.css';
+import './feed.scss';
 const Feed = () => {
-  return <div></div>;
+  return <div className="feed">feed</div>;
 };
 
 export default Feed;

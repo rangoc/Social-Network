@@ -1,7 +1,7 @@
 import React from 'react';
-import './rightbar.css';
+import './rightbar.scss';
 const Rightbar = () => {
-  return <div></div>;
+  return <div className="rightbar">rightbar</div>;
 };
 
 export default Rightbar;

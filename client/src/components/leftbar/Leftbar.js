@@ -1,7 +1,7 @@
 import React from 'react';
-import './leftbar.css';
+import './leftbar.scss';
 const Leftbar = () => {
-  return <div></div>;
+  return <div className="leftbar">leftbar</div>;
 };
 
 export default Leftbar;

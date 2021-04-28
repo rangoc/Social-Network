@@ -1,5 +1,5 @@
 import React from 'react';
-import './topbar.css';
+import './topbar.scss';
 import { Search, Person, Chat, Notifications } from '@material-ui/icons';
 const Topbar = () => {
   return (

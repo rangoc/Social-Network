@@ -59,7 +59,7 @@ const Leftbar = () => {
         <hr className="leftbarHr" />
         <ul className="leftbarFriendList">
           {Users.map((user) => (
-            <CloseFriend user={user} />
+            <CloseFriend key={user.id} user={user} />
           ))}
         </ul>
       </div>

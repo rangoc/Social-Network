@@ -1,3 +1,5 @@
+import Online from 'components/online/Online';
+import { Users } from 'dummyData';
 import React from 'react';
 import './rightbar.scss';
 const Rightbar = () => {
@@ -13,17 +15,9 @@ const Rightbar = () => {
         <img className="rightbarAd" src="/assets/ad.png" alt="ad" />
         <h4 className="rightbarTitle">Online Friends</h4>
         <ul className="rightbarFriendList">
-          <li className="rightbarFriend">
-            <div className="rightbarProfileImgContainer">
-              <img
-                className="rightbarProfileImg"
-                src="/assets/person/3.jpeg"
-                alt="profile"
-              />
-              <span className="rightbarOnline"></span>
-            </div>
-            <span className="rightbarUsername">John Carter</span>
-          </li>
+          {Users.map((user) => (
+            <Online key={user.id} user={user} />
+          ))}
         </ul>
       </div>
     </div>

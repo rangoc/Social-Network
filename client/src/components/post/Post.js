@@ -3,6 +3,7 @@ import './post.scss';
 import { MoreVert } from '@material-ui/icons';
 import axios from 'axios';
 import { format } from 'timeago.js';
+import { Link } from 'react-router-dom';
 const Post = ({ post }) => {
   const [like, setLike] = useState(post.likes.length);
   const [isLiked, setIsLiked] = useState(false);
@@ -11,7 +12,7 @@ const Post = ({ post }) => {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const { data } = await axios.get(`users/${post.userId}`);
+      const { data } = await axios.get(`/users?userId=${post.userId}`);
       setUser(data);
     };
     fetchUser();
@@ -20,16 +21,21 @@ const Post = ({ post }) => {
     setLike(isLiked ? like - 1 : like + 1);
     setIsLiked(!isLiked);
   };
+  console.log(user);
   return (
     <div className="post">
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft">
-            <img
-              className="postProfileImg"
-              src={user.profilePicture || publicFolder + 'person/noAvatar.png'}
-              alt="author of post"
-            />
+            <Link to={`profile/${user.username}`}>
+              <img
+                className="postProfileImg"
+                src={
+                  user.profilePicture || publicFolder + 'person/noAvatar.png'
+                }
+                alt="author of post"
+              />
+            </Link>
             <span className="postUsername">{user.username}</span>
             <span className="postDate">{format(post.createdAt)}</span>
           </div>

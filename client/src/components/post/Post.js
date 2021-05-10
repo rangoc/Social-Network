@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './post.scss';
 import { MoreVert } from '@material-ui/icons';
 import axios from 'axios';
-
+import { format } from 'timeago.js';
 const Post = ({ post }) => {
-  console.log(post);
   const [like, setLike] = useState(post.likes.length);
   const [isLiked, setIsLiked] = useState(false);
   const [user, setUser] = useState({});
@@ -16,7 +15,7 @@ const Post = ({ post }) => {
       setUser(data);
     };
     fetchUser();
-  }, []);
+  }, [post.userId]);
   const likeHandler = () => {
     setLike(isLiked ? like - 1 : like + 1);
     setIsLiked(!isLiked);
@@ -32,7 +31,7 @@ const Post = ({ post }) => {
               alt="author of post"
             />
             <span className="postUsername">{user.username}</span>
-            <span className="postDate">{post.date}</span>
+            <span className="postDate">{format(post.createdAt)}</span>
           </div>
           <div className="postTopRight">
             <MoreVert style={{ cursor: 'pointer' }} />

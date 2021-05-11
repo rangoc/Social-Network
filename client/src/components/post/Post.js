@@ -42,8 +42,8 @@ const Post = ({ post }) => {
                 className="postProfileImg"
                 src={
                   user.profilePicture
-                    ? publicFolder + user.profilePicture
-                    : publicFolder + 'person/noAvatar.png'
+                    ? `${publicFolder}${user.profilePicture}`
+                    : `${publicFolder}person/noAvatar.png`
                 }
                 alt="author of post"
               />
@@ -57,7 +57,15 @@ const Post = ({ post }) => {
         </div>
         <div className="postCenter">
           <span className="postText">{post?.desc}</span>
-          <img className="postImg" src={publicFolder + post.img} alt="post" />
+          {post.img ? (
+            <img
+              className="postImg"
+              src={`${publicFolder}${post.img}`}
+              alt="post"
+            />
+          ) : (
+            ''
+          )}
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">

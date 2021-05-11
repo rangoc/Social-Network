@@ -46,8 +46,8 @@ const Topbar = () => {
           <img
             src={
               user.profilePicture
-                ? publicFolder + user.profilePicture
-                : publicFolder + 'person/noAvatar.png'
+                ? `${publicFolder}${user.profilePicture}`
+                : `${publicFolder}person/noAvatar.png`
             }
             alt=""
             className="topbarImg"

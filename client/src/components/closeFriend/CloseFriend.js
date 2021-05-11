@@ -6,7 +6,7 @@ const CloseFriend = ({ user }) => {
     <li className="leftbarFriend">
       <img
         className="leftbarFriendImg"
-        src={publicFolder + user.profilePicture}
+        src={`${publicFolder}${user.profilePicture}`}
         alt="close friend profile"
       />
       <span className="leftbarFriendName">{user.username}</span>

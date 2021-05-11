@@ -7,7 +7,7 @@ const Online = ({ user }) => {
       <div className="rightbarProfileImgContainer">
         <img
           className="rightbarProfileImg"
-          src={publicFolder + user.profilePicture}
+          src={`${publicFolder}${user.profilePicture}`}
           alt="profile"
         />
         <span className="rightbarOnline"></span>

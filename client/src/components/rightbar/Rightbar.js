@@ -17,7 +17,7 @@ const Rightbar = ({ user }) => {
       }
     };
     getFriends();
-  }, [user._id]);
+  }, [user]);
   const HomeRightbar = () => {
     return (
       <>

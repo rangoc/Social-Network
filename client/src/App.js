@@ -11,6 +11,7 @@ import Profile from 'pages/profile/Profile';
 import Login from 'pages/login/Login';
 import Register from 'pages/register/Register';
 import { AuthContext } from 'context/AuthContext';
+import Messenger from 'pages/messenger/Messenger';
 
 const App = () => {
   const { user } = useContext(AuthContext);
@@ -23,6 +24,9 @@ const App = () => {
         <Route path="/login">{user ? <Redirect to="/" /> : <Login />}</Route>
         <Route path="/register">
           {user ? <Redirect to="/" /> : <Register />}
+        </Route>
+        <Route path="/messenger">
+          {!user ? <Redirect to="/" /> : <Messenger />}
         </Route>
         <Route path="/profile/:username">
           <Profile />

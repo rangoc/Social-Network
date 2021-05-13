@@ -19,20 +19,19 @@ const Conversation = ({ conversation, currentUser }) => {
     };
     getUser();
   }, [conversation, currentUser]);
-  console.log(user);
   const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
   return (
     <div className="conversation">
       <img
         className="conversationImg"
         src={
-          user.profilePicture
+          user?.profilePicture
             ? `${publicFolder}${user.profilePicture}`
             : `${publicFolder}person/noAvatar.png`
         }
         alt="conversation"
       />
-      <span className="conversationName">{user.username}</span>
+      <span className="conversationName">{user?.username}</span>
     </div>
   );
 };

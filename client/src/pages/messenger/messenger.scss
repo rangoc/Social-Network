@@ -30,6 +30,15 @@
       justify-content: space-between;
       padding: 10px;
       height: 100%;
+      position: relative;
+
+      .noConversationText {
+        position: absolute;
+        top: 10%;
+        font-size: 50px;
+        color: rgb(228, 225, 225);
+        cursor: default;
+      }
 
       .chatBoxTop {
         height: 100%;

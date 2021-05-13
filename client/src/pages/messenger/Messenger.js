@@ -4,6 +4,7 @@ import Conversation from 'components/conversations/Conversation';
 import Message from 'components/message/Message';
 import Topbar from 'components/topbar/Topbar';
 import { AuthContext } from 'context/AuthContext';
+import { io } from 'socket.io-client';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import './messenger.scss';
 const Messenger = () => {
@@ -11,9 +12,14 @@ const Messenger = () => {
   const [currentChat, setCurrentChat] = useState(null);
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
+  const [socket, setSocket] = useState(null);
   const { user } = useContext(AuthContext);
   const messageInput = useRef();
   const scrollRef = useRef();
+
+  useEffect(() => {
+    setSocket(io('ws://localhost:8900'));
+  }, []);
 
   useEffect(() => {
     const getConversations = async () => {

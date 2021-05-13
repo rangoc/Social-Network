@@ -12,7 +12,8 @@ const Messenger = () => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
   const { user } = useContext(AuthContext);
-  const messageInput = useRef('');
+  const messageInput = useRef();
+  const scrollRef = useRef();
 
   useEffect(() => {
     const getConversations = async () => {
@@ -37,6 +38,10 @@ const Messenger = () => {
     };
     getMessages();
   }, [currentChat]);
+
+  useEffect(() => {
+    scrollRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -81,11 +86,12 @@ const Messenger = () => {
               <>
                 <div className="chatBoxTop">
                   {messages.map((message) => (
-                    <Message
-                      key={message._id}
-                      message={message}
-                      own={message.sender === user._id}
-                    />
+                    <div key={message._id} ref={scrollRef}>
+                      <Message
+                        message={message}
+                        own={message.sender === user._id}
+                      />
+                    </div>
                   ))}
                 </div>
                 <div className="chatBoxBottom">

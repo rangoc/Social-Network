@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import './conversation.scss';
 const Conversation = ({ conversation, currentUser }) => {
+  const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -19,7 +20,7 @@ const Conversation = ({ conversation, currentUser }) => {
     };
     getUser();
   }, [conversation, currentUser]);
-  const publicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
+
   return (
     <div className="conversation">
       <img
